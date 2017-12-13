@@ -1,0 +1,132 @@
+\documentclass[	
+	paper = a4,
+	fontsize = 11pt,
+	DIV = 12,
+	abstract = true
+]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{cmap}       
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{exscale}
+\usepackage[l2tabu, orthodox]{nag}
+
+\usepackage{graphicx}
+\usepackage[hyperref=true, useprefix=true, maxbibnames=8, backend=biber]{biblatex}
+\addbibresource{graphkernels.bib}
+\addbibresource{deeplearning.bib}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{url}
+\usepackage{todonotes}
+\usepackage{multirow}
+
+\usepackage[auth-lg]{authblk}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{thmtools}		
+\usepackage{mleftright}
+
+\usepackage{thm-restate}
+\usepackage[mathic=true]{mathtools}
+\usepackage{fixmath}
+\usepackage{units}
+
+\usepackage{enumitem}
+\setlist[enumerate]{noitemsep, topsep=0.5\topsep}
+\setlist[description]{noitemsep, topsep=0.5\topsep}
+\setlist[itemize]{noitemsep, topsep=0.5\topsep}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\usepackage{microtype}
+\usepackage{ellipsis}
+\usepackage{xspace}
+\usepackage{hfoldsty}
+
+% Select font.
+\usepackage[]{newtxtext,newtxmath}
+%\usepackage{fourier}
+%\usepackage{lmodern}
+
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\algdef{SE}{ParForAllLoop}{EndParForAllLoop}[1]{\textbf{parallel for}\(\mbox{#1}\) \textbf{do}}{\textbf{end}}
+
+\usepackage[
+pdfa,
+hidelinks,
+pdftex, 
+pdfdisplaydoctitle,
+pdfpagelabels,
+pdfauthor={Christopher Morris},
+pdftitle={My title},
+pdfsubject={},
+pdfkeywords={},
+pdfproducer={Latex with the hyperref package},
+pdfcreator={pdflatex}
+]{hyperref}
+
+% Let cleveref and thmtools work together
+\makeatletter
+\def\thmt@refnamewithcomma #1#2#3,#4,#5\@nil{%
+	\@xa\def\csname\thmt@envname #1utorefname\endcsname{#3}%
+	\ifcsname #2refname\endcsname
+	\csname #2refname\expandafter\endcsname\expandafter{\thmt@envname}{#3}{#4}%
+	\fi
+}
+\makeatother
+\usepackage[capitalise,noabbrev]{cleveref}   
+
+\DeclareSymbolFont{usualmathcal}{OMS}{cmsy}{m}{n}
+\DeclareSymbolFontAlphabet{\mathcal}{usualmathcal}
+
+\addtokomafont{disposition}{\rmfamily}
+\addtokomafont{descriptionlabel}{\rmfamily}
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+\newcommand{\new}[1]{\emph{#1}}
+\newcommand{\cA}{\ensuremath{\mathcal A}}
+\newcommand{\fA}{\ensuremath{\mathfrak{A}}}
+\newcommand{\bA}{\ensuremath{\mathbb{A}}}
+
+\recalctypearea
+
+\begin{document}
+\title{Bibliography for Graph Classification}
+\subtitle{Kernel and Neural Computation Methods}
+
+\renewcommand\Affilfont{\large}
+\renewcommand\Authfont{\large}
+\setlength{\affilsep}{0.5em}
+\author[*]{Christopher Morris}
+\affil[*]{Department of Computer Science\\TU Dortmund University, Dortmund, Germany\\
+\texttt{firstname.lastname@tu-dortmund.de}}
+\date{\vspace*{-1.0em}\small\today\vspace*{-1.0em}}
+
+\maketitle
+
+\begin{abstract}
+Bibliography for the area of (supervised) graph classification, both graph kernel and deep learning approaches. We only included published articles.
+\end{abstract}
+
+\nocite{*}
+
+
+\printbibliography[keyword=deep, title={Deep Learning}]
+\printbibliography[keyword=kernel, title={Kernel Methods}]
+
+\end{document}
